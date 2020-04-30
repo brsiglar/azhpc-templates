@@ -27,7 +27,8 @@
 			"allowedValues": [
 				"CentOS-7.6",
 				"CentOS-7.6 HPC",
-				"CentOS-7.7 HPC"
+				"CentOS-7.7 HPC",
+				"CentOS-8.1 HPC"
 			],
 			"metadata": {
 				"description": "The VM image of the compute nodes"
@@ -96,6 +97,12 @@
 				"publisher": "OpenLogic",
 				"offer": "CentOS-HPC",
 				"sku": "7.7",
+				"version": "latest"
+			},
+			"CentOS-8.1 HPC": {
+				"publisher": "OpenLogic",
+				"offer": "CentOS-HPC",
+				"sku": "8_1",
 				"version": "latest"
 			}
 		},
