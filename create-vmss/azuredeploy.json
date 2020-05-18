@@ -72,6 +72,8 @@
 		"jumpBoxNSGName": "[concat(variables('jumpBoxName'), 'nsg')]",
 		"addressPrefix": "10.0.0.0/16",
 		"subnetPrefix": "10.0.2.0/24",
+		"platformUpdateDomainCount": "1",
+		"platformFaultDomainCount": "1",
 		"virtualNetworkName": "[concat(variables('namingInfix'), 'vnet')]",
 		"subnetName": "[concat(variables('namingInfix'), 'subnet')]",
 		"vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
@@ -113,6 +115,30 @@
 		"skuType": "[parameters('VM SKU Type')]"
 	},
 	"resources": [
+		{
+			"name": "string",
+			"type": "Microsoft.Compute/availabilitySets",
+			"apiVersion": "2019-07-01",
+			"location": "string",
+			"tags": {},
+			"properties": {
+				"platformUpdateDomainCount": "integer",
+				"platformFaultDomainCount": "integer",
+				"virtualMachines": [
+					{
+						"id": "string"
+					}
+				],
+				"proximityPlacementGroup": {
+					"id": "string"
+				}
+			},
+			"sku": {
+				"name": "string",
+				"tier": "string",
+				"capacity": "integer"
+			}
+		},		
 		{
 			"type": "Microsoft.Storage/storageAccounts",
 			"sku": {
@@ -192,30 +218,6 @@
 				]
 			}
 		},
-		{
-  "name": "string",
-  "type": "Microsoft.Compute/availabilitySets",
-  "apiVersion": "2019-07-01",
-  "location": "string",
-  "tags": {},
-  "properties": {
-    "platformUpdateDomainCount": "1",
-    "platformFaultDomainCount": "1",
-    "virtualMachines": [
-      {
-        "id": "string"
-      }
-    ],
-    "proximityPlacementGroup": {
-      "id": "string"
-    }
-  },
-  "sku": {
-    "name": "string",
-    "tier": "string",
-    "capacity": "integer"
-  }
-}
 		{
 			"type": "Microsoft.Network/networkInterfaces",
 			"name": "[variables('jumpBoxNicName')]",
